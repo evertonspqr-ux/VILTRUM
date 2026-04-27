@@ -36,7 +36,7 @@ export const characters = [
     loyalty: "Coalition of Planets",
     status: "Fundador da Resistência",
     quote: "O primeiro a quebrar a ordem imperial.",
-    image: "/assets/thaedus.jpg",
+    image: "/assets/THAEDUS.jpg",
     color: "border-silver text-silver bg-silver/5"
   },
   {
@@ -46,7 +46,7 @@ export const characters = [
     loyalty: "Império Viltrumita",
     status: "Arma Viva",
     quote: "Onde a diplomacia falha, ele começa.",
-    image: "/assets/conquest.jpg",
+    image: "/assets/conquest (2).jpg",
     color: "border-blood-red text-blood-red bg-blood-red/5"
   },
   {
@@ -66,7 +66,7 @@ export const characters = [
     loyalty: "Império Viltrumita",
     status: "Estratégia Ativa",
     quote: "A expansão exige método, não apenas força.",
-    image: "/assets/kregg.jpg",
+    image: "/assets/kreeg.jpg",
     color: "border-steel-gray text-imperial-white bg-steel-gray/5"
   }
 ];
