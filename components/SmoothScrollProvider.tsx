@@ -16,6 +16,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     });
 
     lenisRef.current = lenis;
+    (window as any).__lenis = lenis;
 
     // Conecta cliques em âncoras ao lenis
     const handleAnchorClick = (e: MouseEvent) => {

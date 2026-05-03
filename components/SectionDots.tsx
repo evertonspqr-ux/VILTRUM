@@ -33,8 +33,14 @@ export default function SectionDots() {
   }, []);
 
   const scrollTo = (id: string) => {
-    if (!id) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const lenis = (window as any).__lenis;
+    if (!id) {
+      lenis ? lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (!el) return;
+    lenis ? lenis.scrollTo(el, { offset: -80 }) : el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

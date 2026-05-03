@@ -16,9 +16,10 @@ function FlipCard({ char, index }: { char: any; index: number }) {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative cursor-pointer group"
-      style={{ perspective: '1200px', height: '480px' }}
-      onClick={() => setFlipped(f => !f)}
+      style={{ height: '480px' }}
     >
+      {/* perspective num div separado para não conflitar com o transform do whileInView */}
+      <div style={{ perspective: '1200px', height: '100%', width: '100%' }} onClick={() => setFlipped(f => !f)}>
       <motion.div
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: 0.65, ease: [0.23, 1, 0.32, 1] }}
@@ -110,6 +111,7 @@ function FlipCard({ char, index }: { char: any; index: number }) {
           </div>
         </div>
       </motion.div>
+      </div>
     </motion.div>
   );
 }

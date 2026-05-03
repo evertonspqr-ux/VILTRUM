@@ -2,12 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import dynamic from 'next/dynamic';
+import ViltrumLogo from './ViltrumLogo';
 import SectionReveal from './SectionReveal';
 import MagneticButton from './MagneticButton';
 import OathOverlay from './OathOverlay';
-
-const ImperialSeal3D = dynamic(() => import('./ImperialSeal3D'), { ssr: false });
 
 export default function ManifestoFinal() {
   const [oathActive, setOathActive] = useState(false);
@@ -19,10 +17,13 @@ export default function ManifestoFinal() {
         <div className="absolute inset-0 bg-background/80" />
       </div>
 
-      {/* 3D Imperial Seal */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] opacity-30 pointer-events-none z-[1]">
-        <ImperialSeal3D />
-      </div>
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-[0.04] pointer-events-none z-[1]"
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 90, ease: 'linear' }}
+      >
+        <ViltrumLogo className="w-full h-full text-imperial-white" />
+      </motion.div>
 
       {/* Spotlight radial from above */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none z-[1]"
