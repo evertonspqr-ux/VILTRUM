@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Linkedin } from 'lucide-react';
 import ViltrumLogo from './ViltrumLogo';
 import GlitchText from './GlitchText';
 
@@ -130,6 +131,16 @@ export default function OathOverlay({ onClose }: { onClose: () => void }) {
               <p className="text-steel-gray/50 text-xs font-mono max-w-sm mx-auto leading-relaxed">
                 O Império registrou sua lealdade. Aguarde convocação pelos canais imperiais oficiais.
               </p>
+
+              <a
+                href="https://www.linkedin.com/in/everton-silva-597891286/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-blood-red/40 text-blood-red/70 hover:text-blood-red hover:border-blood-red hover:shadow-[0_0_20px_rgba(176,0,0,0.3)] font-mono text-[10px] tracking-[0.3em] uppercase transition-all duration-300"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                CANAL IMPERIAL OFICIAL
+              </a>
 
               <button
                 onClick={onClose}
