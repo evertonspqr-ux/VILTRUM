@@ -15,21 +15,23 @@ export default function SectionDots() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const update = () => {
+      const trigger = window.scrollY + window.innerHeight * 0.35;
+      let next = 0;
+      SECTIONS.forEach((section, i) => {
+        const el = section.id
+          ? document.getElementById(section.id)
+          : (document.querySelector('section') as HTMLElement | null);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (trigger >= top) next = i;
+      });
+      setActive(next);
+    };
 
-    SECTIONS.forEach((section, i) => {
-      const el = section.id ? document.getElementById(section.id) : document.querySelector('section');
-      if (!el) return;
-
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(i); },
-        { threshold: 0.4 }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-
-    return () => observers.forEach(o => o.disconnect());
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+    return () => window.removeEventListener('scroll', update);
   }, []);
 
   const scrollTo = (id: string) => {
