@@ -80,6 +80,16 @@ body {
   animation: grain 0.15s steps(1) infinite;
 }
 
+/* Timeline node pulse glow */
+@keyframes nodePulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(176,0,0,0.8), 0 0 25px rgba(176,0,0,0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(176,0,0,1), 0 0 60px rgba(176,0,0,0.6), 0 0 100px rgba(176,0,0,0.2);
+  }
+}
+
 /* Scroll indicator pulse */
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(1);   }

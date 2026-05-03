@@ -122,7 +122,7 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const ringSize = { default: 'w-8 h-8', link: 'w-12 h-12', button: 'w-14 h-14', text: 'w-6 h-6' }[state];
+  const ringSize = { default: 'w-8 h-8', link: 'w-11 h-11', button: 'w-10 h-10', text: 'w-6 h-6' }[state];
   const ringColor = { default: 'border-imperial-white/60', link: 'border-blood-red', button: 'border-alert-red', text: 'border-steel-gray/40' }[state];
   const dotColor = { default: 'bg-imperial-white', link: 'bg-blood-red', button: 'bg-alert-red', text: 'bg-steel-gray' }[state];
 

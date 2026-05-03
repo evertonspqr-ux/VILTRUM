@@ -71,6 +71,48 @@ export default function HeroViltrum() {
         <ViltrumLogo className="w-full h-full text-imperial-white opacity-80" />
       </motion.div>
 
+      {/* God rays — diagonal cinematic light beams */}
+      <div className="absolute inset-0 pointer-events-none z-[4]" style={{
+        background: `
+          linear-gradient(112deg,
+            transparent 0%,
+            transparent 32%,
+            rgba(176,0,0,0.035) 38%,
+            rgba(176,0,0,0.07) 43%,
+            rgba(176,0,0,0.025) 48%,
+            transparent 54%,
+            transparent 66%,
+            rgba(245,245,245,0.012) 70%,
+            rgba(245,245,245,0.022) 73%,
+            transparent 78%
+          )
+        `,
+      }} />
+
+      {/* Floating atmospheric dust particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[3]">
+        {([
+          { l: 8,  s: 2,   d: 4.2, delay: 0,   x: 14  },
+          { l: 15, s: 1.5, d: 5.8, delay: 0.8, x: -10 },
+          { l: 23, s: 3,   d: 4.8, delay: 1.5, x: 18  },
+          { l: 31, s: 1.5, d: 6.2, delay: 0.3, x: -14 },
+          { l: 42, s: 2,   d: 5.0, delay: 2.1, x: 10  },
+          { l: 52, s: 2.5, d: 4.5, delay: 0.6, x: -8  },
+          { l: 61, s: 1.5, d: 5.5, delay: 1.9, x: 16  },
+          { l: 70, s: 2,   d: 4.0, delay: 1.1, x: -12 },
+          { l: 78, s: 3,   d: 5.2, delay: 2.6, x: 8   },
+          { l: 87, s: 1.5, d: 4.7, delay: 0.4, x: -16 },
+        ] as const).map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-blood-red/25"
+            style={{ width: p.s, height: p.s, left: `${p.l}%`, bottom: '8%' }}
+            animate={{ y: [0, -110], x: [0, p.x], opacity: [0, 0.7, 0.3, 0] }}
+            transition={{ duration: p.d, repeat: Infinity, delay: p.delay, ease: 'easeOut' }}
+          />
+        ))}
+      </div>
+
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-[5]" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 z-[5]" />
 

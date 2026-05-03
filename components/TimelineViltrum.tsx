@@ -8,6 +8,10 @@ export default function TimelineViltrum() {
   return (
     <section id="linha-do-tempo" className="py-32 px-6 md:px-24 bg-space-black relative z-10 border-t border-purple-shadow/50 overflow-hidden">
       <div className="absolute inset-0 bg-[url('/assets/blood-texture.png')] mix-blend-multiply opacity-5 pointer-events-none" />
+      {/* Cinematic spotlight from top */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(176,0,0,0.1) 0%, transparent 70%)' }}
+      />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <SectionReveal variant="clip-top" className="mb-24 text-center">
@@ -18,7 +22,9 @@ export default function TimelineViltrum() {
         </SectionReveal>
 
         {/* Central Vertical Line */}
-        <div className="absolute top-[280px] bottom-10 left-[32px] md:left-1/2 w-1 bg-gradient-to-b from-blood-red via-steel-gray to-transparent -translate-x-1/2 opacity-30" />
+        <div className="absolute top-[280px] bottom-10 left-[32px] md:left-1/2 w-[2px] bg-gradient-to-b from-blood-red via-steel-gray/40 to-transparent -translate-x-1/2 opacity-70" />
+        {/* Glow blur duplicate */}
+        <div className="absolute top-[280px] bottom-10 left-[32px] md:left-1/2 w-[6px] bg-gradient-to-b from-blood-red/50 via-blood-red/20 to-transparent -translate-x-1/2 opacity-50 blur-[3px]" />
 
         <div className="flex flex-col gap-16 md:gap-24">
           {timelineEvents.map((event, index) => {
@@ -33,11 +39,11 @@ export default function TimelineViltrum() {
                 className={`relative flex items-center md:justify-between w-full ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
                 {/* Center Node */}
-                <div className="absolute left-[32px] md:left-1/2 w-4 h-4 rounded-none bg-background border-2 border-imperial-white -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] rotate-45" />
+                <div className="absolute left-[32px] md:left-1/2 w-4 h-4 rounded-none bg-blood-red border-2 border-blood-red/60 -translate-x-1/2 z-10 rotate-45 animate-[nodePulse_2.5s_ease-in-out_infinite]" />
 
                 {/* Content Card */}
                 <div className="ml-[70px] md:ml-0 w-full md:w-[45%]">
-                  <div className="p-8 border border-steel-gray/20 bg-background/80 backdrop-blur-md relative group hover:border-steel-gray/60 transition-colors">
+                  <div className="p-8 border border-steel-gray/20 bg-background/80 backdrop-blur-md relative group hover:border-blood-red/40 hover:shadow-[0_0_40px_rgba(176,0,0,0.12),inset_0_0_30px_rgba(176,0,0,0.04)] transition-all duration-500">
                     {/* Background Phase Number */}
                     <div className="absolute -top-6 -left-4 md:-top-8 md:-left-4 text-6xl md:text-8xl font-display font-black text-steel-gray opacity-5 select-none transition-opacity group-hover:opacity-10 pointer-events-none">
                       {event.phase}
