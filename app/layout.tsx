@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Oswald } from 'next/font/google';
-import './globals.css'; // Global styles
+import './globals.css';
+import GrainOverlay from '@/components/GrainOverlay';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} dark scroll-smooth`}>
       <body className="bg-background text-imperial-white antialiased selection:bg-blood-red/50 selection:text-white" suppressHydrationWarning>
+        <GrainOverlay />
         {children}
       </body>
     </html>
