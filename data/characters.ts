@@ -36,7 +36,7 @@ export const characters = [
     loyalty: "Coalition of Planets",
     status: "Fundador da Resistência",
     quote: "O primeiro a quebrar a ordem imperial.",
-    image: "/assets/THAEDUS.jpg",
+    image: "/assets/thaedus.jpg",
     color: "border-silver text-silver bg-silver/5"
   },
   {
