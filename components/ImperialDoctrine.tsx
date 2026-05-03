@@ -58,7 +58,7 @@ export default function ImperialDoctrine() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
-                className="group relative p-8 bg-[linear-gradient(to_bottom,rgba(21,17,31,0.5),rgba(8,10,13,0.9))] border border-steel-gray/20 overflow-hidden hover:border-blood-red/50 transition-colors duration-500"
+                className="group relative p-8 bg-[linear-gradient(to_bottom,rgba(21,17,31,0.5),rgba(8,10,13,0.9))] border border-steel-gray/20 overflow-hidden hover:border-blood-red/50 hover:shadow-[0_0_40px_rgba(176,0,0,0.2),inset_0_0_40px_rgba(176,0,0,0.04)] transition-all duration-500"
               >
                 {/* Glow effect on hover */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blood-red to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -22,11 +22,45 @@ export default function HeroViltrum() {
         <img
           src="/assets/hero-bg.png"
           alt="Viltrum Army"
-          className="w-full h-full object-cover object-center opacity-80"
+          className="w-full h-full object-cover object-top opacity-80"
         />
       </motion.div>
       <div className="absolute inset-0 scanlines opacity-50 z-[1]" />
       <div className="absolute inset-0 bg-noise opacity-50 z-[1]" />
+
+      {/* Pulsing red vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[3]"
+        style={{
+          background: 'radial-gradient(ellipse 85% 85% at 50% 50%, transparent 38%, rgba(176,0,0,0.18) 100%)',
+          animation: 'vignettePulse 5s ease-in-out infinite',
+        }}
+      />
+
+      {/* Animated scan line sweep */}
+      <div
+        className="absolute left-0 right-0 h-[1px] pointer-events-none z-[6]"
+        style={{
+          background: 'linear-gradient(to right, transparent, rgba(176,0,0,0.5) 40%, rgba(245,245,245,0.3) 50%, rgba(176,0,0,0.5) 60%, transparent)',
+          animation: 'scanline 9s linear infinite',
+        }}
+      />
+
+      {/* Glitch stripe flash */}
+      <div
+        className="absolute left-0 right-0 h-[3px] pointer-events-none z-[6]"
+        style={{
+          background: 'rgba(229,9,20,0.7)',
+          mixBlendMode: 'screen',
+          animation: 'glitchStripe 12s ease-in-out infinite',
+        }}
+      />
+
+      {/* Corner HUD brackets */}
+      <div className="absolute top-6 left-6 w-10 h-10 border-l-2 border-t-2 border-blood-red/50 pointer-events-none z-[6]" />
+      <div className="absolute top-6 right-6 w-10 h-10 border-r-2 border-t-2 border-blood-red/50 pointer-events-none z-[6]" />
+      <div className="absolute bottom-6 left-6 w-10 h-10 border-l-2 border-b-2 border-blood-red/50 pointer-events-none z-[6]" />
+      <div className="absolute bottom-6 right-6 w-10 h-10 border-r-2 border-b-2 border-blood-red/50 pointer-events-none z-[6]" />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -62,9 +96,15 @@ export default function HeroViltrum() {
         </span>
       </div>
 
-      <div className="absolute bottom-6 left-8 font-mono text-xs text-uniform-blue tracking-widest hidden lg:block z-0 opacity-30 pointer-events-none">
+      <div className="absolute bottom-6 left-8 font-mono text-xs text-uniform-blue tracking-widest hidden lg:block z-[7] opacity-30 pointer-events-none">
         <div className="w-16 h-[2px] bg-uniform-blue mb-2" />
         VILTRUM_ARCHIVE // SYS_v9.4
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-[7] pointer-events-none">
+        <span className="font-mono text-[9px] text-steel-gray/40 tracking-[0.4em]">SCROLL</span>
+        <div className="w-[1px] h-10 bg-gradient-to-b from-blood-red/60 to-transparent animate-[scrollPulse_2s_ease-in-out_infinite]" />
       </div>
 
       {/* Conteúdo principal com parallax sutil */}
