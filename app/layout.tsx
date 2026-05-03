@@ -2,9 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Oswald } from 'next/font/google';
 import './globals.css';
 import GrainOverlay from '@/components/GrainOverlay';
-import SmoothScrollProvider from '@/components/SmoothScrollProvider';
-import CustomCursor from '@/components/CustomCursor';
-import AmbientAudio from '@/components/AmbientAudio';
+import ClientShell from '@/components/ClientShell';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,11 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} dark scroll-smooth`}>
       <body className="bg-background text-imperial-white antialiased selection:bg-blood-red/50 selection:text-white" suppressHydrationWarning>
         <GrainOverlay />
-        <CustomCursor />
-        <AmbientAudio />
-        <SmoothScrollProvider>
+        <ClientShell>
           {children}
-        </SmoothScrollProvider>
+        </ClientShell>
       </body>
     </html>
   );

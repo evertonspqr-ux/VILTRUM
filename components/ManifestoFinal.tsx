@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import ViltrumLogo from './ViltrumLogo';
+import SectionReveal from './SectionReveal';
 
 export default function ManifestoFinal() {
   return (
@@ -31,17 +32,12 @@ export default function ManifestoFinal() {
           VILTRUM NÃO CAI. VILTRUM RETORNA.
         </motion.h2>
 
-        <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-           transition={{ duration: 1, delay: 0.2 }}
-        >
+        <SectionReveal variant="slide-up" delay={0.2}>
            <h3 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-imperial-white uppercase tracking-tighter leading-[1.1] mb-8">
              &quot;Nós não governamos porque somos muitos.<br className="hidden md:block"/>
              Governamos porque <span className="text-blood-red">somos fortes</span>.&quot;
            </h3>
-        </motion.div>
+        </SectionReveal>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

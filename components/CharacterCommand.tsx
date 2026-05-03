@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { characters } from '../data/characters';
+import SectionReveal from './SectionReveal';
 
 function TiltCard({ char, index }: { char: any, index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -117,13 +118,13 @@ export default function CharacterCommand() {
   return (
     <section id="comando" className="py-32 px-6 md:px-24 bg-background relative z-10 border-t border-purple-shadow/50">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-20 text-center md:text-left">
+        <SectionReveal variant="scale-in" className="mb-20 text-center md:text-left">
           <h2 className="text-sm font-mono text-uniform-blue tracking-[0.4em] mb-4 font-bold">HIERARQUIA ESTRATÉGICA //</h2>
           <h3 className="text-5xl md:text-7xl font-display font-bold text-imperial-white tracking-tighter uppercase drop-shadow-md">
             Comando Imperial
           </h3>
           <div className="mt-6 w-24 h-1 bg-uniform-blue opacity-50 md:mx-0 mx-auto" />
-        </div>
+        </SectionReveal>
 
         <div style={{ perspective: "1500px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {characters.map((char, i) => (

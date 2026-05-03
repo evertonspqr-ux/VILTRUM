@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { Shield, Skull, Globe, Target } from 'lucide-react';
 import ViltrumLogo from './ViltrumLogo';
+import SectionReveal from './SectionReveal';
 
 const doctrines = [
   {
@@ -37,7 +38,7 @@ export default function ImperialDoctrine() {
       <div className="absolute inset-0 bg-[url('/assets/blood-texture.png')] mix-blend-multiply opacity-5 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-20 text-center md:text-left">
+        <SectionReveal variant="wipe-left" className="mb-20 text-center md:text-left">
           <h2 className="text-sm font-mono text-alert-red tracking-[0.4em] mb-4 font-bold">DIRETRIZES PRIMÁRIAS //</h2>
           <h3 className="text-5xl md:text-7xl font-display font-bold text-imperial-white tracking-tighter uppercase drop-shadow-md">
             Doutrina Viltrumita
@@ -45,7 +46,7 @@ export default function ImperialDoctrine() {
           <p className="mt-6 text-xl text-steel-gray max-w-2xl">
             A civilização inferior chama de tirania. Viltrum chama de ordem.
           </p>
-        </div>
+        </SectionReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {doctrines.map((doc, i) => {

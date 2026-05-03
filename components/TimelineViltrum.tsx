@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { timelineEvents } from '../data/timeline';
+import SectionReveal from './SectionReveal';
 
 export default function TimelineViltrum() {
   return (
@@ -9,12 +10,12 @@ export default function TimelineViltrum() {
       <div className="absolute inset-0 bg-[url('/assets/blood-texture.png')] mix-blend-multiply opacity-5 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="mb-24 text-center">
+        <SectionReveal variant="clip-top" className="mb-24 text-center">
           <h2 className="text-sm font-mono text-blood-red tracking-[0.4em] mb-4 font-bold">REGISTRO HISTÓRICO RESTRITO //</h2>
           <h3 className="text-5xl md:text-7xl font-display font-bold text-imperial-white tracking-tighter uppercase drop-shadow-md">
             Ascensão, Purificação e Queda
           </h3>
-        </div>
+        </SectionReveal>
 
         {/* Central Vertical Line */}
         <div className="absolute top-[280px] bottom-10 left-[32px] md:left-1/2 w-1 bg-gradient-to-b from-blood-red via-steel-gray to-transparent -translate-x-1/2 opacity-30" />
