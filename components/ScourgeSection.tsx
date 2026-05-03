@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { Skull, AlertTriangle, ShieldAlert, HeartCrack, Globe } from 'lucide-react';
 import ScourgeVirus3D from './ScourgeVirus3D';
+import GlitchText from './GlitchText';
 
 export default function ScourgeSection() {
   return (
@@ -26,13 +27,14 @@ export default function ScourgeSection() {
                transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-scourge-green/10 border border-scourge-green/50 text-scourge-green font-mono text-xs tracking-widest mb-6 animate-pulse">
-                <AlertTriangle className="w-4 h-4" /> BIOHAZARD DETECTED
+                <AlertTriangle className="w-4 h-4" />
+                <GlitchText text="BIOHAZARD DETECTED" intensity="medium" />
               </div>
               <h2 className="text-6xl md:text-8xl font-display font-black text-imperial-white uppercase mb-4 tracking-tighter drop-shadow-[0_0_10px_rgba(99,255,106,0.2)]">
-                Scourge Virus
+                <GlitchText text="Scourge Virus" intensity="low" />
               </h2>
               <p className="text-2xl text-scourge-green/80 font-display font-bold uppercase tracking-wide mb-8">
-                O dia em que Viltrum sangrou.
+                <GlitchText text="O dia em que Viltrum sangrou." intensity="low" />
               </p>
               
               <p className="text-xl text-steel-gray leading-relaxed mb-10 max-w-2xl border-l-2 border-scourge-green/30 pl-6 mx-auto lg:mx-0">

@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import Image from 'next/image';
 import ViltrumLogo from './ViltrumLogo';
+import GlitchText from './GlitchText';
 
 export default function HeroViltrum() {
   return (
@@ -43,7 +43,9 @@ export default function HeroViltrum() {
         <span className="bg-surface-elevated/40 px-3 py-1 border border-steel-gray/20 tracking-widest text-steel-gray">PLANETA-ALVO: TERRA</span>
         <span className="bg-surface-elevated/40 px-3 py-1 border border-steel-gray/20 tracking-widest text-steel-gray">AUTORIDADE: GRANDE REGENTE</span>
         <span className="bg-surface-elevated/40 px-3 py-1 border border-steel-gray/20 tracking-widest text-steel-gray">PROTOCOLO: CONQUISTA</span>
-        <span className="text-imperial-white px-3 py-1 border border-imperial-white/20 bg-imperial-white/5 tracking-widest">SINAL: VILTRUM ONLINE</span>
+        <span className="text-imperial-white px-3 py-1 border border-imperial-white/20 bg-imperial-white/5 tracking-widest">
+          <GlitchText text="SINAL: VILTRUM ONLINE" intensity="medium" />
+        </span>
       </div>
 
       <div className="absolute bottom-6 left-8 font-mono text-xs text-uniform-blue tracking-widest hidden lg:block z-0 opacity-30 pointer-events-none">
@@ -58,13 +60,13 @@ export default function HeroViltrum() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
-          <motion.p 
+          <motion.p
             className="text-blood-red font-mono text-sm md:text-base tracking-[0.4em] mb-8 font-bold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            ARQUIVO IMPERIAL // SETOR TERRA
+            <GlitchText text="ARQUIVO IMPERIAL // SETOR TERRA" intensity="low" />
           </motion.p>
           
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-bold text-imperial-white tracking-tighter leading-[0.85] mb-6 uppercase drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">

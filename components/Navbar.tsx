@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import ViltrumLogo from './ViltrumLogo';
+import GlitchText from './GlitchText';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,10 +29,10 @@ export default function Navbar() {
 
         {/* Links */}
         <ul className="hidden lg:flex items-center gap-8 font-mono text-xs tracking-widest text-steel-gray">
-          <li><a href="#doutrina" className="hover:text-imperial-white transition-colors">DOUTRINA</a></li>
-          <li><a href="#comando" className="hover:text-imperial-white transition-colors">COMANDO</a></li>
-          <li><a href="#linha-do-tempo" className="hover:text-imperial-white transition-colors">LINHA DO TEMPO</a></li>
-          <li><a href="#scourge" className="hover:text-scourge-green transition-colors">SCOURGE</a></li>
+          <li><a href="#doutrina" className="hover:text-imperial-white transition-colors"><GlitchText text="DOUTRINA" trigger="hover" /></a></li>
+          <li><a href="#comando" className="hover:text-imperial-white transition-colors"><GlitchText text="COMANDO" trigger="hover" /></a></li>
+          <li><a href="#linha-do-tempo" className="hover:text-imperial-white transition-colors"><GlitchText text="LINHA DO TEMPO" trigger="hover" /></a></li>
+          <li><a href="#scourge" className="hover:text-scourge-green transition-colors"><GlitchText text="SCOURGE" trigger="hover" /></a></li>
         </ul>
 
         {/* CTA */}
