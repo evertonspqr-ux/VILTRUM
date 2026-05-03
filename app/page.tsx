@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import HeroViltrum from '@/components/HeroViltrum';
+import ImperialTicker from '@/components/ImperialTicker';
 import ImperialDoctrine from '@/components/ImperialDoctrine';
 import CharacterCommand from '@/components/CharacterCommand';
 import TimelineViltrum from '@/components/TimelineViltrum';
@@ -14,6 +15,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <HeroViltrum />
+      <ImperialTicker />
       <ImperialDoctrine />
       <CharacterCommand />
       <TimelineViltrum />

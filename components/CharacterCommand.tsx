@@ -44,8 +44,16 @@ function FlipCard({ char, index }: { char: any; index: number }) {
               ID: V-{char.id.toUpperCase().substring(0, 4)}
             </div>
 
-            <div className="absolute top-4 right-4 font-mono text-[9px] text-steel-gray/60 bg-black/60 px-2 py-1 border border-steel-gray/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-4 right-4 font-mono text-[9px] text-steel-gray/60 bg-black/60 px-2 py-1 border border-steel-gray/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-300">
               VER FICHA →
+            </div>
+
+            {/* CLASSIFIED stamp */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+              <div className="rotate-[-14deg] border-[3px] border-blood-red/75 px-5 py-2 bg-background/20 backdrop-blur-[2px]">
+                <p className="font-display font-black text-blood-red/80 text-lg tracking-[0.5em] uppercase">CLASSIFICADO</p>
+                <p className="font-mono text-[8px] text-blood-red/50 tracking-[0.3em] text-center mt-0.5">ACESSO RESTRITO</p>
+              </div>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-6">
