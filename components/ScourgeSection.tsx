@@ -1,9 +1,11 @@
 'use client';
 
 import { motion } from 'motion/react';
+import dynamic from 'next/dynamic';
 import { Skull, AlertTriangle, ShieldAlert, HeartCrack, Globe } from 'lucide-react';
-import ScourgeVirus3D from './ScourgeVirus3D';
 import GlitchText from './GlitchText';
+
+const ScourgeVirus3D = dynamic(() => import('./ScourgeVirus3D'), { ssr: false, loading: () => null });
 
 export default function ScourgeSection() {
   return (

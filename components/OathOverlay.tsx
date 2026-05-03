@@ -132,22 +132,23 @@ export default function OathOverlay({ onClose }: { onClose: () => void }) {
                 O Império registrou sua lealdade. Aguarde convocação pelos canais imperiais oficiais.
               </p>
 
-              <a
-                href="https://www.linkedin.com/in/everton-silva-597891286/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-blood-red/40 text-blood-red/70 hover:text-blood-red hover:border-blood-red hover:shadow-[0_0_20px_rgba(176,0,0,0.3)] font-mono text-[10px] tracking-[0.3em] uppercase transition-all duration-300"
-              >
-                <Linkedin className="w-3.5 h-3.5" />
-                CANAL IMPERIAL OFICIAL
-              </a>
-
-              <button
-                onClick={onClose}
-                className="px-10 py-3 border border-steel-gray/30 text-steel-gray/50 font-mono text-xs tracking-[0.3em] uppercase hover:border-imperial-white hover:text-imperial-white transition-all duration-300"
-              >
-                DISPENSADO // FECHAR
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="https://www.linkedin.com/in/everton-silva-597891286/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-10 py-3 border border-blood-red/50 text-blood-red font-mono text-xs tracking-[0.3em] uppercase hover:border-blood-red hover:bg-blood-red/10 hover:text-imperial-white transition-all duration-300"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                  CANAL IMPERIAL OFICIAL
+                </a>
+                <button
+                  onClick={onClose}
+                  className="px-10 py-3 border border-steel-gray/30 text-steel-gray/50 font-mono text-xs tracking-[0.3em] uppercase hover:border-imperial-white hover:text-imperial-white transition-all duration-300"
+                >
+                  DISPENSADO // FECHAR
+                </button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
