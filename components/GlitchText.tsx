@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const GLITCH_CHARS = '!<>-_\\/[]{}—=+*^?#░▒▓█▄▌▐▀$%@&';
 
 interface GlitchTextProps {
   text: string;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   intensity?: 'low' | 'medium' | 'high';
   trigger?: 'auto' | 'hover';
 }
