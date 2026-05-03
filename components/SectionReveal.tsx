@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useInView, type Variants } from 'motion/react';
 
 type RevealVariant = 'slide-up' | 'wipe-left' | 'wipe-right' | 'scale-in' | 'clip-top';
 
@@ -13,7 +13,7 @@ interface SectionRevealProps {
   threshold?: number;
 }
 
-const variants: Record<RevealVariant, { hidden: object; visible: object }> = {
+const variants: Record<RevealVariant, Variants> = {
   'slide-up': {
     hidden: { clipPath: 'inset(100% 0 0 0)', opacity: 0, y: 40 },
     visible: { clipPath: 'inset(0% 0 0 0)', opacity: 1, y: 0 },
