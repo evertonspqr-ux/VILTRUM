@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import ViltrumLogo from './ViltrumLogo';
 import GlitchText from './GlitchText';
+import TextReveal from './TextReveal';
 
 export default function HeroViltrum() {
   return (
@@ -55,50 +56,73 @@ export default function HeroViltrum() {
 
       {/* Main Content */}
       <div className="relative z-20 max-w-4xl pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-        >
+        {/* Label com glitch */}
+        <div className="overflow-hidden mb-8">
           <motion.p
-            className="text-blood-red font-mono text-sm md:text-base tracking-[0.4em] mb-8 font-bold"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            className="text-blood-red font-mono text-sm md:text-base tracking-[0.4em] font-bold"
+            initial={{ y: '100%', opacity: 0 }}
+            animate={{ y: '0%', opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <GlitchText text="ARQUIVO IMPERIAL // SETOR TERRA" intensity="low" />
           </motion.p>
-          
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-bold text-imperial-white tracking-tighter leading-[0.85] mb-6 uppercase drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
-            O IMPÉRIO <br />PRECISA DE <br className="md:hidden" /><span className="text-blood-red">VOCÊ</span>
-          </h1>
-          
+        </div>
+
+        {/* Título com text reveal por palavra */}
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.85] mb-6 uppercase drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
+          <span className="text-imperial-white block">
+            <TextReveal text="O IMPÉRIO" delay={0.4} stagger={0.12} />
+          </span>
+          <span className="text-imperial-white block">
+            <TextReveal text="PRECISA DE" delay={0.7} stagger={0.12} />
+          </span>
+          <span className="text-blood-red block">
+            <TextReveal text="VOCÊ" delay={1.0} stagger={0.18} />
+          </span>
+        </h1>
+
+        {/* Subtítulo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1.4, ease: 'easeOut' }}
+        >
           <h2 className="text-2xl md:text-4xl text-silver font-display font-bold tracking-wide mb-8 uppercase max-w-3xl border-l-4 border-blood-red pl-6 py-2 bg-gradient-to-r from-blood-red/10 to-transparent">
             Viltrum não solicita.<br />Viltrum convoca.
           </h2>
-          
-          <p className="text-base md:text-lg text-steel-gray max-w-xl mb-12 leading-relaxed font-sans">
-            A Terra foi marcada para assimilação. A força será medida. A lealdade será exigida. Apenas os dignos sobreviverão à ordem imperial.
-          </p>
+        </motion.div>
 
-          <div className="flex flex-col sm:flex-row gap-5">
-            <motion.button 
-              onClick={() => document.getElementById('alistamento')?.scrollIntoView({ behavior: 'smooth' })}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-blood-red text-imperial-white font-display text-xl font-bold tracking-widest uppercase hover:bg-alert-red transition-colors duration-300 relative overflow-hidden shadow-[0_0_20px_rgba(176,0,0,0.4)]"
-            >
-              <span className="relative z-10 drop-shadow-md">Iniciar Alistamento</span>
-            </motion.button>
-            <motion.button 
-              onClick={() => document.getElementById('doutrina')?.scrollIntoView({ behavior: 'smooth' })}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 border border-steel-gray/40 bg-space-black/50 backdrop-blur-md text-imperial-white font-display text-xl font-bold tracking-widest uppercase hover:border-imperial-white hover:bg-imperial-white/5 transition-colors duration-300"
-            >
-              Acessar Arquivo Viltrumita
-            </motion.button>
-          </div>
+        <motion.p
+          className="text-base md:text-lg text-steel-gray max-w-xl mb-12 leading-relaxed font-sans"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.7 }}
+        >
+          A Terra foi marcada para assimilação. A força será medida. A lealdade será exigida. Apenas os dignos sobreviverão à ordem imperial.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.0 }}
+        >
+          <motion.button
+            onClick={() => document.getElementById('alistamento')?.scrollIntoView({ behavior: 'smooth' })}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-5 bg-blood-red text-imperial-white font-display text-xl font-bold tracking-widest uppercase hover:bg-alert-red transition-colors duration-300 relative overflow-hidden shadow-[0_0_20px_rgba(176,0,0,0.4)]"
+          >
+            <span className="relative z-10 drop-shadow-md">Iniciar Alistamento</span>
+          </motion.button>
+          <motion.button
+            onClick={() => document.getElementById('doutrina')?.scrollIntoView({ behavior: 'smooth' })}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-5 border border-steel-gray/40 bg-space-black/50 backdrop-blur-md text-imperial-white font-display text-xl font-bold tracking-widest uppercase hover:border-imperial-white hover:bg-imperial-white/5 transition-colors duration-300"
+          >
+            Acessar Arquivo Viltrumita
+          </motion.button>
         </motion.div>
       </div>
 
