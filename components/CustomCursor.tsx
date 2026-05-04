@@ -24,6 +24,7 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0);
   const particles = useRef<Particle[]>([]);
   const lastParticlePos = useRef({ x: -999, y: -999 });
+  const lastStateCheck = useRef(0);
 
   useEffect(() => {
     setMounted(true);
@@ -52,21 +53,25 @@ export default function CustomCursor() {
           life: 1,
           size: Math.random() * 2.5 + 1,
         });
-        if (particles.current.length > 25) particles.current.shift();
+        if (particles.current.length > 15) particles.current.shift();
       }
 
-      const el = document.elementFromPoint(e.clientX, e.clientY);
-      if (!el) return setState('default');
-      const tag = el.tagName.toLowerCase();
-      const role = el.getAttribute('role');
-      const isLink = tag === 'a' || !!el.closest('a');
-      const isBtn = tag === 'button' || role === 'button' || !!el.closest('button');
-      const isText = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'li'].includes(tag);
-
-      if (isBtn) setState('button');
-      else if (isLink) setState('link');
-      else if (isText) setState('text');
-      else setState('default');
+      const now = performance.now();
+      if (now - lastStateCheck.current > 60) {
+        lastStateCheck.current = now;
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        if (el) {
+          const tag = el.tagName.toLowerCase();
+          const role = el.getAttribute('role');
+          const isLink = tag === 'a' || !!el.closest('a');
+          const isBtn = tag === 'button' || role === 'button' || !!el.closest('button');
+          const isText = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'li'].includes(tag);
+          if (isBtn) setState('button');
+          else if (isLink) setState('link');
+          else if (isText) setState('text');
+          else setState('default');
+        }
+      }
     };
 
     const onLeave = () => setVisible(false);

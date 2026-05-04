@@ -18,7 +18,7 @@ export default function HeroViltrum() {
     <section ref={sectionRef} className="relative w-full h-screen min-h-[800px] flex flex-col justify-center items-start overflow-hidden px-6 md:px-24 bg-background">
 
       <div className="absolute inset-0 bg-space-black z-0" />
-      <motion.div className="absolute -inset-[12%] z-0" style={{ y: bgY }}>
+      <motion.div className="absolute -inset-[12%] z-0" style={{ y: bgY, willChange: 'transform' }}>
         <img
           src="/assets/hero-bg.png"
           alt="Viltrum Army"
@@ -89,26 +89,32 @@ export default function HeroViltrum() {
         `,
       }} />
 
-      {/* Floating atmospheric dust particles */}
+      {/* Floating atmospheric dust particles — CSS compositor thread */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[3]">
         {([
           { l: 8,  s: 2,   d: 4.2, delay: 0,   x: 14  },
-          { l: 15, s: 1.5, d: 5.8, delay: 0.8, x: -10 },
           { l: 23, s: 3,   d: 4.8, delay: 1.5, x: 18  },
-          { l: 31, s: 1.5, d: 6.2, delay: 0.3, x: -14 },
           { l: 42, s: 2,   d: 5.0, delay: 2.1, x: 10  },
-          { l: 52, s: 2.5, d: 4.5, delay: 0.6, x: -8  },
           { l: 61, s: 1.5, d: 5.5, delay: 1.9, x: 16  },
-          { l: 70, s: 2,   d: 4.0, delay: 1.1, x: -12 },
           { l: 78, s: 3,   d: 5.2, delay: 2.6, x: 8   },
           { l: 87, s: 1.5, d: 4.7, delay: 0.4, x: -16 },
         ] as const).map((p, i) => (
-          <motion.div
+          <div
             key={i}
             className="absolute rounded-full bg-blood-red/25"
-            style={{ width: p.s, height: p.s, left: `${p.l}%`, bottom: '8%' }}
-            animate={{ y: [0, -110], x: [0, p.x], opacity: [0, 0.7, 0.3, 0] }}
-            transition={{ duration: p.d, repeat: Infinity, delay: p.delay, ease: 'easeOut' }}
+            style={{
+              width: p.s,
+              height: p.s,
+              left: `${p.l}%`,
+              bottom: '8%',
+              '--px': `${p.x}px`,
+              animationName: 'floatUp',
+              animationDuration: `${p.d}s`,
+              animationDelay: `${p.delay}s`,
+              animationTimingFunction: 'ease-out',
+              animationIterationCount: 'infinite',
+              willChange: 'transform, opacity',
+            } as React.CSSProperties}
           />
         ))}
       </div>
@@ -150,7 +156,7 @@ export default function HeroViltrum() {
       </div>
 
       {/* Conteúdo principal com parallax sutil */}
-      <motion.div className="relative z-20 max-w-4xl pt-20" style={{ y: contentY }}>
+      <motion.div className="relative z-20 max-w-4xl pt-20" style={{ y: contentY, willChange: 'transform' }}>
         <div className="overflow-hidden mb-8">
           <motion.p
             className="text-blood-red font-mono text-sm md:text-base tracking-[0.4em] font-bold"
