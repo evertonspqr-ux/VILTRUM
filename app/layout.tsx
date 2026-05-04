@@ -37,7 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div aria-hidden="true" style={{ display: 'none' }}>
           {/* © 2025 Everton Silva — https://www.linkedin.com/in/everton-silva-597891286/ — Todos os direitos reservados. Reprodução proibida sem autorização. */}
         </div>
-        <GrainOverlay />
         <ClientShell>
           {children}
         </ClientShell>
